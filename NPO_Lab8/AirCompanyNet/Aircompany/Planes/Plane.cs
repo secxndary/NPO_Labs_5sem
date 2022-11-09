@@ -34,7 +34,6 @@ namespace Aircompany.Planes
                    _maxFlightDistance == plane._maxFlightDistance;
         }
 
-        // equalitycomparer?
         public override int GetHashCode()
         {
             var hashCode = -1043886837;
