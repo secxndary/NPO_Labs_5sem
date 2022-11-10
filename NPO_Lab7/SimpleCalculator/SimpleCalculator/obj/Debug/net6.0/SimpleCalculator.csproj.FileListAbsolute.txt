@@ -13,3 +13,11 @@ C:\Users\valda\source\repos\semester#5\НПО\NPO_Lab7\SimpleCalculator\SimpleCa
 C:\Users\valda\source\repos\semester#5\НПО\NPO_Lab7\SimpleCalculator\SimpleCalculator\obj\Debug\net6.0\SimpleCalculator.pdb
 C:\Users\valda\source\repos\semester#5\НПО\NPO_Lab7\SimpleCalculator\SimpleCalculator\obj\Debug\net6.0\SimpleCalculator.genruntimeconfig.cache
 C:\Users\valda\source\repos\semester#5\НПО\NPO_Lab7\SimpleCalculator\SimpleCalculator\obj\Debug\net6.0\ref\SimpleCalculator.dll
+C:\Users\valda\source\repos\semester#5\НПО\NPO_Lab7\SimpleCalculator\SimpleCalculator\bin\Debug\net6.0\NUnit3.TestAdapter.dll
+C:\Users\valda\source\repos\semester#5\НПО\NPO_Lab7\SimpleCalculator\SimpleCalculator\bin\Debug\net6.0\NUnit3.TestAdapter.pdb
+C:\Users\valda\source\repos\semester#5\НПО\NPO_Lab7\SimpleCalculator\SimpleCalculator\bin\Debug\net6.0\nunit.engine.dll
+C:\Users\valda\source\repos\semester#5\НПО\NPO_Lab7\SimpleCalculator\SimpleCalculator\bin\Debug\net6.0\nunit.engine.api.dll
+C:\Users\valda\source\repos\semester#5\НПО\NPO_Lab7\SimpleCalculator\SimpleCalculator\bin\Debug\net6.0\nunit.engine.core.dll
+C:\Users\valda\source\repos\semester#5\НПО\NPO_Lab7\SimpleCalculator\SimpleCalculator\bin\Debug\net6.0\testcentric.engine.metadata.dll
+C:\Users\valda\source\repos\semester#5\НПО\NPO_Lab7\SimpleCalculator\SimpleCalculator\bin\Debug\net6.0\nunit.framework.dll
+C:\Users\valda\source\repos\semester#5\НПО\NPO_Lab7\SimpleCalculator\SimpleCalculator\obj\Debug\net6.0\SimpleCalculator.csproj.CopyComplete

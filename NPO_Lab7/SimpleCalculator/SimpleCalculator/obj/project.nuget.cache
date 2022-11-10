@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "4kaeegb6f/i4C0baQLo2Od2vIU5uLtrQMfFvPTgfy/CLeUgI6wanVvkYfK7SL5k02iUTpQ/qiIb3jlCq29iZsg==",
+  "dgSpecHash": "BxKchFcv04SvYbQqV5VtJfCnxXMmVUhbzDX2ZfLtl2HB+P4srJ5UKXbkhLKLGQ9icRt64TYH2EyHFTiDJQffuw==",
   "success": true,
   "projectFilePath": "C:\\Users\\valda\\source\\repos\\semester#5\\НПО\\NPO_Lab7\\SimpleCalculator\\SimpleCalculator\\SimpleCalculator.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\valda\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\valda\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512",
+    "C:\\Users\\valda\\.nuget\\packages\\nunit\\3.13.3\\nunit.3.13.3.nupkg.sha512",
+    "C:\\Users\\valda\\.nuget\\packages\\nunit3testadapter\\4.3.0\\nunit3testadapter.4.3.0.nupkg.sha512"
+  ],
   "logs": []
 }

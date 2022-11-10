@@ -10,19 +10,6 @@ namespace Aircompany
     {
         public static void Main()
         {
-            //using (StreamWriter sw = new StreamWriter("../../JSON/militaryPlanes.json"))
-            //{
-            //    string json = JsonConvert.SerializeObject(planesPassenger, Formatting.Indented);
-            //    Console.WriteLine(json);
-            //    sw.Write(json);
-            //}
-            //using (var sr = new StreamReader("../../JSON/passengerplanes.json"))
-            //{
-            //    string json = sr.ReadToEnd();
-            //    Console.WriteLine(json);
-            //    planes = JsonConvert.DeserializeObject<List<Plane>>(json);
-            //}
-
             var planes = new List<Plane>();
             var passengerPlanes = new List<PassengerPlane>();
             var militaryPlanes = new List<MilitaryPlane>();
