@@ -1,3 +1,4 @@
+package simple_test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,7 +10,6 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import waits.CustomConditions;
-
 import java.util.List;
 
 
@@ -57,6 +57,7 @@ public class WebDriverPastebinTest {
 
     @Test
     public void BringItOnTest() {
+        String pasteName = "how to gain dominance among developers";
         WebElement textAreaInput = waitForElementLocatedBy(driver, By.id("postform-text"));
         WebElement selectPasteExpiration = waitForElementLocatedBy(driver, By.id("select2-postform-expiration-container"));
         WebElement inputPasteNameOrTitle = waitForElementLocatedBy(driver, By.id("postform-name"));
@@ -75,12 +76,12 @@ public class WebDriverPastebinTest {
         selectPasteExpiration.click();
         liPasteExpiration10Minutes = waitForElementLocatedBy(driver, By.xpath("//li[text()='10 Minutes']"));
         liPasteExpiration10Minutes.click();
-        inputPasteNameOrTitle.sendKeys("how to gain dominance among developers");
+        inputPasteNameOrTitle.sendKeys(pasteName);
         buttonCreateNewPaste.click();
 
 
         // ASSERT
-        Assert.assertTrue(true);
+        Assert.assertEquals(driver.getTitle(), pasteName);
     }
 
 

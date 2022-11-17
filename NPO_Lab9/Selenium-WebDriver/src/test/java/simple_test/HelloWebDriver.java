@@ -1,3 +1,4 @@
+package simple_test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -28,7 +29,6 @@ public class HelloWebDriver {
 
 
 
-
         // I Can Win
 //        textAreaInput.sendKeys("Hello from WebDriver");
 //        selectPasteExpiration.click();
@@ -50,11 +50,11 @@ public class HelloWebDriver {
         liPasteExpiration10Minutes.click();
         inputPasteNameOrTitle.sendKeys("how to gain dominance among developers");
         buttonCreateNewPaste.click();
+        System.out.println(driver.getTitle());
 
 
 
-
-        Thread.sleep(10000);
+        Thread.sleep(20000);
         driver.quit();
     }
 
