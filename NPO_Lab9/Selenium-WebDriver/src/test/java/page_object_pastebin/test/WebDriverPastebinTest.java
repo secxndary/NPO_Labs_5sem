@@ -1,4 +1,4 @@
-package simple_test;
+package page_object_pastebin.test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,8 +21,9 @@ public class WebDriverPastebinTest {
     @BeforeMethod (alwaysRun = true)
     public void browserSetup() {
         driver = new ChromeDriver();
-        driver.get("https://pastebin.com/");
-        new WebDriverWait(driver, 10).until(CustomConditions.jQueryAJAXsCompleted());
+        driver.manage().window().maximize();
+//        driver.get("https://pastebin.com/");
+//        new WebDriverWait(driver, 10).until(CustomConditions.jQueryAJAXsCompleted());
     }
 
 
