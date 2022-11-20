@@ -43,6 +43,12 @@ public class GoogleCloudPricingCalculatorPage {
     @FindBy(xpath = "//md-option[@value='NVIDIA_TESLA_V100']")
     WebElement optionGPUTeslaV100;
 
+    @FindBy(xpath = "//md-select[@ng-model='listingCtrl.computeServer.gpuCount']")
+    WebElement selectNumberOFGPUs;
+
+    @FindBy(xpath = "//md-option[@ng-disabled='item.value != 0 && item.value < listingCtrl.minGPU' and @value='1']")
+    WebElement option1GPU;
+
     @FindBy(xpath = "//md-select[@ng-model='listingCtrl.computeServer.ssd']")
     WebElement selectLocalSSD;
 
@@ -58,11 +64,15 @@ public class GoogleCloudPricingCalculatorPage {
     @FindBy(xpath = "//md-select[@ng-model='listingCtrl.computeServer.cud']")
     WebElement selectCommittedUsage;
 
-    @FindBy(xpath = "//div[@class='md-select-menu-container md-active md-clickable']/md-select-menu/md-content/md-option[@value='1']")
+//    @FindBy(xpath = "//div[@class='md-select-menu-container md-active md-clickable']/md-select-menu/md-content/md-option[@value='1']")
+    @FindBy(xpath = "//div[@class='md-select-menu-container md-active md-clickable']/md-select-menu/md-content/md-option[@value='1' and @ng-value='1']/div[text()='1 Year']")
     WebElement option1YearUsage;
 
     @FindBy(xpath = "//button[@ng-click='listingCtrl.addComputeServer(ComputeEngineForm);']")
     WebElement buttonAddToEstimate;
+
+    @FindBy(xpath = "//h2[@class='md-title']/b[@class='ng-binding']")
+    WebElement totalEstimatedCost;
 
     @FindBy(id = "email_quote")
     WebElement buttonEmailEstimate;
@@ -112,6 +122,8 @@ public class GoogleCloudPricingCalculatorPage {
         checkBoxAddGPUs.click();
         selectGPUType.click();
         optionGPUTeslaV100.click();
+        selectNumberOFGPUs.click();
+        option1GPU.click();
         return this;
     }
 
@@ -123,12 +135,18 @@ public class GoogleCloudPricingCalculatorPage {
 
     public GoogleCloudPricingCalculatorPage chooseDatacenterLocation() {
         selectDatacenterLocation.click();
+        optionFrankfurtLocation = waitForElementLocatedBy(driver, By.xpath
+                ("//md-option[@ng-repeat='item in listingCtrl.fullRegionList | " +
+                        "filter:listingCtrl.inputRegionText.computeServer' and @value='europe-west3']"));
         optionFrankfurtLocation.click();
         return this;
     }
 
     public GoogleCloudPricingCalculatorPage chooseCommittedUsage() {
         selectCommittedUsage.click();
+        option1YearUsage = waitForElementLocatedBy(driver, By.xpath
+                ("//div[@class='md-select-menu-container md-active md-clickable']/md-select-menu/" +
+                        "md-content/md-option[@value='1' and @ng-value='1']/div[text()='1 Year']"));
         option1YearUsage.click();
         return this;
     }
@@ -136,5 +154,14 @@ public class GoogleCloudPricingCalculatorPage {
     public GoogleCloudPricingCalculatorPage addToEstimate() {
         buttonAddToEstimate.click();
         return this;
+    }
+
+    public String getTotalCost() {
+        return totalEstimatedCost.getText();
+    }
+
+    private static WebElement waitForElementLocatedBy(WebDriver driver, By by) {
+        return new WebDriverWait(driver, 10)
+                .until(ExpectedConditions.presenceOfElementLocated(by));
     }
 }

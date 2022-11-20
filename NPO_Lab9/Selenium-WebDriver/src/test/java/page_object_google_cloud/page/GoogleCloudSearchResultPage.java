@@ -21,9 +21,12 @@ public class GoogleCloudSearchResultPage {
         PageFactory.initElements(driver, this);
     }
 
-    public void selectSearchResult() {
+
+    public GoogleCloudSearchResultPage selectSearchResult(String searchText) {
         WebDriverWait waitForPricingCalculatorPage = new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS);
-        waitForPricingCalculatorPage.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//b[text()='Google Cloud Pricing Calculator']")));
+        waitForPricingCalculatorPage.until(ExpectedConditions.visibilityOfElementLocated
+                (By.xpath("//b[text()='" + searchText + "']")));
         linkToTheCalculatorPage.click();
+        return this;
     }
 }

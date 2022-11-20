@@ -1,15 +1,19 @@
 package page_object_pastebin.page;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import waits.CustomConditions;
 
+import java.util.List;
+
 public class PasteBinPage {
 
-    private final int WAIT_TIMEOUT_SECONDS = 25;
+    private final int WAIT_TIMEOUT_SECONDS = 15;
     private WebDriver driver;
 
     @FindBy(id = "postform-text")
@@ -29,8 +33,6 @@ public class PasteBinPage {
 
     WebElement liPasteExpiration10Minutes;
 
-    WebElement liSyntaxHighlightingBash;
-
 
     public PasteBinPage(WebDriver driver) {
         this.driver = driver;
@@ -43,23 +45,43 @@ public class PasteBinPage {
         return this;
     }
 
-    public PasteBinPage () {
+
+    public PasteBinPage inputMessageInTextarea(String message) {
+        textAreaInput.sendKeys(message);
         return this;
     }
 
-    public PasteBinPage () {
+    public PasteBinPage selectPasteExpiration(String pasteExpirationText) {
+        selectPasteExpiration.click();
+        liPasteExpiration10Minutes = waitForElementLocatedBy(driver, By.xpath("//li[text()='" + pasteExpirationText + "']"));
+        liPasteExpiration10Minutes.click();
         return this;
     }
 
-    public PasteBinPage () {
+    public PasteBinPage inputPasteName(String pasteName) {
+        inputPasteNameOrTitle.sendKeys(pasteName);
         return this;
     }
 
-    public PasteBinPage () {
+    public PasteBinPage clickButtonCreateNewPaste() {
+        buttonCreateNewPaste.click();
         return this;
     }
 
-    public PasteBinPage () {
+    public PasteBinPage selectSyntaxHighlighting(String syntaxHighlighting) {
+        selectSyntaxHighlighting.click();
+        List<WebElement> liSyntaxHighlightingBash = driver.findElements(By.xpath("//li[text()='" + syntaxHighlighting + "']"));
+        liSyntaxHighlightingBash.get(0).click();
         return this;
+    }
+
+    public String getPageTitle() {
+        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS);
+        return driver.getTitle();
+    }
+
+    private static WebElement waitForElementLocatedBy(WebDriver driver, By by) {
+        return new WebDriverWait(driver, 10)
+                .until(ExpectedConditions.presenceOfElementLocated(by));
     }
 }

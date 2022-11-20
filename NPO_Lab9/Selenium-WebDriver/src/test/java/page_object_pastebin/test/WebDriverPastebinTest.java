@@ -9,6 +9,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import page_object_pastebin.page.PasteBinPage;
 import waits.CustomConditions;
 import java.util.List;
 
@@ -17,15 +18,11 @@ public class WebDriverPastebinTest {
 
     private WebDriver driver;
 
-
     @BeforeMethod (alwaysRun = true)
     public void browserSetup() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-//        driver.get("https://pastebin.com/");
-//        new WebDriverWait(driver, 10).until(CustomConditions.jQueryAJAXsCompleted());
     }
-
 
     @AfterMethod(alwaysRun = true)
     public void quitDriver() {
@@ -36,59 +33,39 @@ public class WebDriverPastebinTest {
 
     @Test
     public void ICanWinTest() {
-        WebElement textAreaInput = waitForElementLocatedBy(driver, By.id("postform-text"));
-        WebElement selectPasteExpiration = waitForElementLocatedBy(driver, By.id("select2-postform-expiration-container"));
-        WebElement inputPasteNameOrTitle = waitForElementLocatedBy(driver, By.id("postform-name"));
-        WebElement buttonCreateNewPaste = waitForElementLocatedBy(driver, By.xpath("//button[text()='Create New Paste']"));
-        WebElement liPasteExpiration10Minutes;
-
-
-        textAreaInput.sendKeys("Hello from WebDriver");
-        selectPasteExpiration.click();
-        liPasteExpiration10Minutes = waitForElementLocatedBy(driver, By.xpath("//li[text()='10 Minutes']"));
-        liPasteExpiration10Minutes.click();
-        inputPasteNameOrTitle.sendKeys("helloweb");
-        buttonCreateNewPaste.click();
-
-        // ASSERT
-        Assert.assertTrue(true);
+        String textAreaMessage = "Hello from WebDriver";
+        String pasteExpiration = "10 Minutes";
+        String pasteName = "helloweb";
+        String expectedPageTitle = pasteName + " - Pastebin.com";
+        String actualPageTitle = new PasteBinPage(driver)
+                .waitForPastebinPageLoad()
+                .inputMessageInTextarea(textAreaMessage)
+                .selectPasteExpiration(pasteExpiration)
+                .inputPasteName(pasteName)
+                .clickButtonCreateNewPaste()
+                .getPageTitle();
+        Assert.assertEquals(actualPageTitle, expectedPageTitle);
     }
-
 
 
     @Test
     public void BringItOnTest() {
         String pasteName = "how to gain dominance among developers";
-        WebElement textAreaInput = waitForElementLocatedBy(driver, By.id("postform-text"));
-        WebElement selectPasteExpiration = waitForElementLocatedBy(driver, By.id("select2-postform-expiration-container"));
-        WebElement inputPasteNameOrTitle = waitForElementLocatedBy(driver, By.id("postform-name"));
-        WebElement buttonCreateNewPaste = waitForElementLocatedBy(driver, By.xpath("//button[text()='Create New Paste']"));
-        WebElement liPasteExpiration10Minutes;
-        WebElement selectSyntaxHighlighting = waitForElementLocatedBy(driver, By.id("select2-postform-format-container"));
-        List<WebElement> liSyntaxHighlightingBash;
+        String pasteExpiration = "10 Minutes";
+        String syntaxHighlighting = "Bash";
+        String expectedPageTitle = pasteName + " - Pastebin.com";
+        String textAreaMessage = "git config --global user.name  \"New Sheriff in Town\"\n" +
+                                 "git reset $(git commit-tree HEAD^{tree} -m \"Legacy code\")\n" +
+                                 "git push origin master --force";
 
-
-        textAreaInput.sendKeys("git config --global user.name  \"New Sheriff in Town\"\n" +
-                                            "git reset $(git commit-tree HEAD^{tree} -m \"Legacy code\")\n" +
-                                            "git push origin master --force\n");
-        selectSyntaxHighlighting.click();
-        liSyntaxHighlightingBash = driver.findElements(By.xpath("//li[text()='Bash']"));
-        liSyntaxHighlightingBash.get(0).click();
-        selectPasteExpiration.click();
-        liPasteExpiration10Minutes = waitForElementLocatedBy(driver, By.xpath("//li[text()='10 Minutes']"));
-        liPasteExpiration10Minutes.click();
-        inputPasteNameOrTitle.sendKeys(pasteName);
-        buttonCreateNewPaste.click();
-
-
-        // ASSERT
-        Assert.assertEquals(driver.getTitle(), pasteName);
-    }
-
-
-
-    private static WebElement waitForElementLocatedBy(WebDriver driver, By by) {
-        return new WebDriverWait(driver, 10)
-                .until(ExpectedConditions.presenceOfElementLocated(by));
+        String actualPageTitle = new PasteBinPage(driver)
+                .waitForPastebinPageLoad()
+                .inputMessageInTextarea(textAreaMessage)
+                .selectPasteExpiration(pasteExpiration)
+                .selectSyntaxHighlighting(syntaxHighlighting)
+                .inputPasteName(pasteName)
+                .clickButtonCreateNewPaste()
+                .getPageTitle();
+        Assert.assertEquals(actualPageTitle, expectedPageTitle);
     }
 }
