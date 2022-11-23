@@ -94,9 +94,9 @@ public class GoogleCloudPricingCalculatorPage {
         return this;
     }
 
-    public GoogleCloudPricingCalculatorPage chooseNumberOfInstances(int number) {
+    public GoogleCloudPricingCalculatorPage chooseNumberOfInstances(int numberOfInstances) {
         inputNumberOfInstances.click();
-        inputNumberOfInstances.sendKeys(String.valueOf(number));
+        inputNumberOfInstances.sendKeys(String.valueOf(numberOfInstances));
         return this;
     }
 
