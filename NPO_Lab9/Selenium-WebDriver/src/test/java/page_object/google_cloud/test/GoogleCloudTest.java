@@ -1,4 +1,4 @@
-package page_object_google_cloud.test;
+package page_object.google_cloud.test;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,9 +10,9 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import page_object_google_cloud.page.GoogleCloudHomePage;
-import page_object_google_cloud.page.GoogleCloudPricingCalculatorPage;
-import page_object_google_cloud.page.GoogleCloudSearchResultPage;
+import page_object.google_cloud.page.GoogleCloudHomePage;
+import page_object.google_cloud.page.GoogleCloudSearchResultPage;
+import page_object.google_cloud.page.GoogleCloudPricingCalculatorPage;
 
 public class GoogleCloudTest {
 

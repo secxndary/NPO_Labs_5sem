@@ -1,4 +1,4 @@
-package page_object_pastebin.page;
+package page_object.pastebin.page;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

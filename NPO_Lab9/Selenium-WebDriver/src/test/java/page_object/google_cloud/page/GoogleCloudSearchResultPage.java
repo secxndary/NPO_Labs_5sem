@@ -1,4 +1,4 @@
-package page_object_google_cloud.page;
+package page_object.google_cloud.page;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
