@@ -1,5 +1,6 @@
-package secxndary_framework.service;
+package secxndary_framework.creator;
 import secxndary_framework.model.User;
+import secxndary_framework.utils.TestDataReader;
 
 
 public class UserCreator {

@@ -1,13 +1,9 @@
 package secxndary_framework.test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import secxndary_framework.model.User;
 import secxndary_framework.page.*;
-import secxndary_framework.service.UserCreator;
+import secxndary_framework.creator.UserCreator;
 
 
 public class OzByTest extends CommonConditions{

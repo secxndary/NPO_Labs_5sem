@@ -1,4 +1,4 @@
-package secxndary_framework.service;
+package secxndary_framework.utils;
 import java.util.ResourceBundle;
 
 
