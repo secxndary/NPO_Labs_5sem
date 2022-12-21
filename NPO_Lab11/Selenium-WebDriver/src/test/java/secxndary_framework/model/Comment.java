@@ -12,10 +12,6 @@ public class Comment {
 
     public Comment() { }
 
-    public Comment(String commentText) {
-        this.commentText = commentText;
-    }
-
     public Comment(String feedbackText, String searchText, String commentText, int numberOfGoods) {
         this.feedbackText = feedbackText;
         this.searchText = searchText;

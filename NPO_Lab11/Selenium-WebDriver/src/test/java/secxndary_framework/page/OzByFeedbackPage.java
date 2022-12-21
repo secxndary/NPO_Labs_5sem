@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import secxndary_framework.model.Comment;
 
 
 public class OzByFeedbackPage extends AbstractPage {
@@ -22,8 +23,8 @@ public class OzByFeedbackPage extends AbstractPage {
         PageFactory.initElements(driver, this);
     }
 
-    public OzByFeedbackPage sendFeedbackMessage(String feedbackMessage) throws InterruptedException {
-        textAreaFeedbackMessage.sendKeys(feedbackMessage);
+    public OzByFeedbackPage sendFeedbackMessage(Comment feedbackMessage) throws InterruptedException {
+        textAreaFeedbackMessage.sendKeys(feedbackMessage.getFeedbackText());
         // это вынужденная заглушка, т.к. на сайте надо ввести капчу
         Thread.sleep(5000);
         buttonSendFeedback.click();

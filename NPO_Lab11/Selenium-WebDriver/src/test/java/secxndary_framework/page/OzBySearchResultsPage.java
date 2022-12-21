@@ -15,7 +15,6 @@ public class OzBySearchResultsPage extends AbstractPage {
     WebElement optionNotForSale;
 
 
-
     public OzBySearchResultsPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -33,7 +32,7 @@ public class OzBySearchResultsPage extends AbstractPage {
     public Boolean checkIfSearchFilterIsCorrect() {
         optionNotForSale.click();
         try {
-            waitForElementLocatedBy(driver, By.xpath("//*[text()=' 28 товаров']"));
+            waitForElementLocatedBy(driver, By.xpath("//*[text()=' 26 товаров']"));
             return true;
         } catch (NoSuchElementException e) {
             return false;

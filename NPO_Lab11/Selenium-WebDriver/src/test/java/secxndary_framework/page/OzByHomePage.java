@@ -5,11 +5,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import secxndary_framework.model.Comment;
 import secxndary_framework.model.User;
 
 public class OzByHomePage extends AbstractPage {
-
-
 
     @FindBy(xpath = "//ul[@id='goods_block_books_1']/li[@class='listatic li_1']")
     WebElement firstGoodOnTheHomePage;
@@ -77,8 +76,8 @@ public class OzByHomePage extends AbstractPage {
         return this;
     }
 
-    public OzByHomePage enterOrderCallUserName(String userName) {
-        inputOrderCallUserName.sendKeys(userName);
+    public OzByHomePage enterOrderCallUserName(User incorrectUserName) {
+        inputOrderCallUserName.sendKeys(incorrectUserName.getIncorrectUsername());
         return this;
     }
 
@@ -91,8 +90,8 @@ public class OzByHomePage extends AbstractPage {
         }
     }
 
-    public OzByHomePage enterSearchText(String searchText) {
-        inputSearch.sendKeys(searchText + Keys.ENTER);
+    public OzByHomePage enterSearchText(Comment searchText) {
+        inputSearch.sendKeys(searchText.getSearchText() + Keys.ENTER);
         return this;
     }
 

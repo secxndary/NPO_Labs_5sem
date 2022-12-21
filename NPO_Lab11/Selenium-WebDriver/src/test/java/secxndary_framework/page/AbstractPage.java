@@ -18,4 +18,11 @@ public abstract class AbstractPage {
         return new WebDriverWait(driver, 10)
                 .until(ExpectedConditions.presenceOfElementLocated(by));
     }
+
+    public AbstractPage waitForPageToLoad() {
+        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
+                .until(ExpectedConditions.visibilityOfElementLocated(
+                        By.xpath("")));
+        return this;
+    }
 }

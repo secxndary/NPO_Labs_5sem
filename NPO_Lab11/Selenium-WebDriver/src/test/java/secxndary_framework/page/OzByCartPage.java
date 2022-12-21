@@ -4,6 +4,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import secxndary_framework.model.Address;
+import secxndary_framework.model.Comment;
 
 
 public class OzByCartPage extends AbstractPage {
@@ -44,16 +46,16 @@ public class OzByCartPage extends AbstractPage {
         PageFactory.initElements(driver, this);
     }
 
-    public OzByCartPage enterNumberOfGoods(int numberOfGoods) {
+    public OzByCartPage enterNumberOfGoods(Comment numberOfGoods) {
         inputChangeNumberOfGoods.click();
         span10NumberOfGoods.click();
         waitForElementLocatedBy(driver, By.xpath("//input[@value='10']"));
-        inputEnterNumberOfGoods.sendKeys(String.valueOf(numberOfGoods));
+        inputEnterNumberOfGoods.sendKeys(String.valueOf(numberOfGoods.getNumberOfGoods()));
         return this;
     }
 
-    public Boolean checkIfNumberOfGoodsIsSent(int numberOfGoods) {
-        String numberOfGoodsString = String.valueOf(numberOfGoods);
+    public Boolean checkIfNumberOfGoodsIsSent(Comment numberOfGoods) {
+        String numberOfGoodsString = String.valueOf(numberOfGoods.getNumberOfGoods());
         try {
             driver.findElement(By.xpath("//input[@value='" + numberOfGoodsString + "']"));
             return true;
@@ -79,14 +81,14 @@ public class OzByCartPage extends AbstractPage {
         }
     }
 
-    public OzByCartPage addDeliveryAddress(String street, String house) {
+    public OzByCartPage addDeliveryAddress(Address address) {
         waitForElementLocatedBy(driver, By.xpath("//*[@class='deal-form-main__input deal-form-main__input_popup i-input i-input_no-border-radius ']"));
         inputDeliveryAddress.click();
         waitForElementLocatedBy(driver, By.xpath("//a[@class='i-context-box-list__control i-context-box-list__input_link']"));
         buttonAddDeliveryAddress.click();
         waitForElementLocatedBy(driver, By.xpath("//*[@id='i-street']"));
-        inputFormAddressStreet.sendKeys(street);
-        inputFormAddressHouse.sendKeys(house);
+        inputFormAddressStreet.sendKeys(address.getStreet());
+        inputFormAddressHouse.sendKeys(address.getHouse());
         buttonAddAddress.click();
         return this;
     }
@@ -102,6 +104,15 @@ public class OzByCartPage extends AbstractPage {
 
 
     public OzByCartPage waitForCartPageToLoad() {
+        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
+                .until(ExpectedConditions.visibilityOfElementLocated(
+                        By.xpath("//input[@value='1']")));
+        return this;
+    }
+
+
+    @Override
+    public OzByCartPage waitForPageToLoad() {
         new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
                 .until(ExpectedConditions.visibilityOfElementLocated(
                         By.xpath("//input[@value='1']")));

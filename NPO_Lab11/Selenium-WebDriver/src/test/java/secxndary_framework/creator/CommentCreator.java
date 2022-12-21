@@ -8,26 +8,38 @@ public class CommentCreator {
     public static final String TESTDATA_COMMENT_TEXT = "testdata.text.comment";
     public static final String TESTDATA_FEEDBACK_TEXT = "testdata.text.feedback";
     public static final String TESTDATA_SEARCH_TEXT = "testdata.text.search";
-    public static final int TESTDATA_NUMBER_OF_GOODS = Integer.parseInt("testdata.number.goods");
+    public static final String TESTDATA_NUMBER_OF_GOODS = "testdata.number.goods";
 
-    public static Comment getCommentText(String commentText) {
-        return new Comment(commentText);
+
+    public static Comment getCommentWithAllData() {
+        return new Comment(
+                TestDataReader.getTestData(TESTDATA_FEEDBACK_TEXT),
+                TestDataReader.getTestData(TESTDATA_SEARCH_TEXT),
+                TestDataReader.getTestData(TESTDATA_COMMENT_TEXT),
+                Integer.parseInt(TestDataReader.getTestData(TESTDATA_NUMBER_OF_GOODS)));
     }
 
-    public static Comment getFeedbackText(String feedbackText) {
+    public static Comment getCommentText() {
         Comment comment = new Comment();
-        comment.setFeedbackText(feedbackText);
+        comment.setCommentText(TestDataReader.getTestData(TESTDATA_COMMENT_TEXT));
         return comment;
     }
 
-    public static Comment getSearchText(String searchText) {
+    public static Comment getFeedbackText() {
         Comment comment = new Comment();
-        comment.setSearchText(searchText);
+        comment.setFeedbackText(TestDataReader.getTestData(TESTDATA_FEEDBACK_TEXT));
         return comment;
     }
 
-    public static Comment getNumberOfGoods(int numberOfGoods) {
+    public static Comment getSearchText() {
         Comment comment = new Comment();
-        comment.setNumberOfGoods(numberOfGoods);
-        return comment;       }
+        comment.setSearchText(TestDataReader.getTestData(TESTDATA_SEARCH_TEXT));
+        return comment;
+    }
+
+    public static Comment getNumberOfGoods() {
+        Comment comment = new Comment();
+        comment.setNumberOfGoods(Integer.parseInt(TestDataReader.getTestData(TESTDATA_NUMBER_OF_GOODS)));
+        return comment;
+    }
 }

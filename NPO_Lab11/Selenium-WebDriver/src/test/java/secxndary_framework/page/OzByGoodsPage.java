@@ -8,8 +8,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import secxndary_framework.model.Comment;
 
-public class OzByGoodsPage extends AbstractPage{
+public class OzByGoodsPage extends AbstractPage {
 
     @FindBy(xpath = "//a[@class='b-comment-new__state-btn']")
     WebElement buttonEnterComment;
@@ -39,8 +40,8 @@ public class OzByGoodsPage extends AbstractPage{
         return this;
     }
 
-    public OzByGoodsPage enterComment (String commentText) {
-        textAreaCommentMessage.sendKeys(commentText);
+    public OzByGoodsPage enterComment (Comment commentText) {
+        textAreaCommentMessage.sendKeys(commentText.getCommentText());
         return this;
     }
 
@@ -49,10 +50,10 @@ public class OzByGoodsPage extends AbstractPage{
         return this;
     }
 
-    public Boolean checkIfCommentIsSent(String commentText) {
+    public Boolean checkIfCommentIsSent(Comment commentText) {
         try {
-            waitForElementLocatedBy(driver, By.xpath("//p[text()='" + commentText + "']"));
-            driver.findElement(By.xpath("//p[text()='" + commentText + "']"));
+            waitForElementLocatedBy(driver, By.xpath("//p[text()='" + commentText.getCommentText() + "']"));
+            driver.findElement(By.xpath("//p[text()='" + commentText.getCommentText() + "']"));
             return true;
         } catch (NoSuchElementException e) {
             return false;
