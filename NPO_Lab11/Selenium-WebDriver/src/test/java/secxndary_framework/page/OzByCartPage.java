@@ -19,6 +19,12 @@ public class OzByCartPage extends AbstractPage {
     @FindBy(xpath = "//input[@value='10']")
     WebElement inputEnterNumberOfGoods;
 
+    @FindBy(xpath = "//*[@class='i-pseudolink__select']")
+    WebElement selectChooseDeliveryCity;
+
+    @FindBy(xpath = "//option[@value='1']")
+    WebElement optionDeliveryCityMinsk;
+
     @FindBy(xpath = "//a[text() = 'Выберите способ доставки']")
     WebElement selectChooseDeliveryMethod;
 
@@ -67,6 +73,9 @@ public class OzByCartPage extends AbstractPage {
     public OzByCartPage chooseCourierDeliveryOption() {
         waitForElementLocatedBy(driver, By.xpath("//a[text() = 'Выберите способ доставки']"));
         selectChooseDeliveryMethod.click();
+        waitForElementLocatedBy(driver, By.xpath("//*[@class='i-pseudolink__select']"));
+        selectChooseDeliveryCity.click();
+        optionDeliveryCityMinsk.click();
         waitForElementLocatedBy(driver, By.xpath("//div[contains(text(), 'Курьером')]"));
         optionCourierDeliveryMethod.click();
         return this;
@@ -103,19 +112,11 @@ public class OzByCartPage extends AbstractPage {
     }
 
 
-    public OzByCartPage waitForCartPageToLoad() {
-        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
-                .until(ExpectedConditions.visibilityOfElementLocated(
-                        By.xpath("//input[@value='1']")));
-        return this;
-    }
-
-
     @Override
     public OzByCartPage waitForPageToLoad() {
         new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
                 .until(ExpectedConditions.visibilityOfElementLocated(
-                        By.xpath("//input[@value='1']")));
+                        By.xpath("//button[@id='checkout-block-submit']")));
         return this;
     }
 }

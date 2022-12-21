@@ -40,7 +40,9 @@ public class OzByFeedbackPage extends AbstractPage {
         }
     }
 
-    public OzByFeedbackPage waitForFeedbackPageToLoad() {
+
+    @Override
+    public OzByFeedbackPage waitForPageToLoad() {
         new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
                 .until(ExpectedConditions.visibilityOfElementLocated(
                         By.xpath("//*[@id='inp-3']")));

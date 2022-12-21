@@ -73,7 +73,8 @@ public class OzByGoodsPage extends AbstractPage {
     }
 
 
-    public OzByGoodsPage waitForGoodsPageToLoad() {
+    @Override
+    public OzByGoodsPage waitForPageToLoad() {
         new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
                 .until(ExpectedConditions.visibilityOfElementLocated(
                         By.xpath("//a[@class='b-comment-new__state-btn']")));

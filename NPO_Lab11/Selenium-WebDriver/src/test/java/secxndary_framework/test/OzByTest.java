@@ -30,7 +30,7 @@ public class OzByTest extends CommonConditions{
                 .openFirstGoodPage();
 
         Boolean checkIfCommentIsSent = new OzByGoodsPage(driver)
-                .waitForGoodsPageToLoad()
+                .waitForPageToLoad()
                 .clickOnLeaveCommentButton()
                 .enterComment(TEST_COMMENT)
                 .sendComment()
@@ -40,7 +40,7 @@ public class OzByTest extends CommonConditions{
     }
 
 
-
+    @Ignore
     @Test
     public void EnterNumberOfGoods_ShouldReturnError_WhenNumberOfGoods_IsMoreThan99() {
 
@@ -51,11 +51,10 @@ public class OzByTest extends CommonConditions{
                 .openFirstGoodPage();
 
         new OzByGoodsPage(driver)
-                .waitForGoodsPageToLoad()
+                .waitForPageToLoad()
                 .openCartPage();
 
         Boolean checkIfNumberOfGoodsIsSent = new OzByCartPage(driver)
-//                .waitForCartPageToLoad()
                 .waitForPageToLoad()
                 .enterNumberOfGoods(TEST_COMMENT)
                 .checkIfNumberOfGoodsIsSent(TEST_COMMENT);
@@ -91,7 +90,7 @@ public class OzByTest extends CommonConditions{
                 .openTextFeedbackPage();
 
         OzByFeedbackPage ozByFeedbackPage = new OzByFeedbackPage(driver)
-                .waitForFeedbackPageToLoad()
+                .waitForPageToLoad()
                 .sendFeedbackMessage(TEST_COMMENT);
         Thread.sleep(5000);
         Boolean checkIfFeedbackMessageIsSent = ozByFeedbackPage.checkIfFeedbackMessageIsSent();
@@ -145,7 +144,6 @@ public class OzByTest extends CommonConditions{
                 .openCartPage();
 
         Boolean checkIfCourierDeliveryOptionShowsAddressInput = new OzByCartPage(driver)
-//                .waitForCartPageToLoad()
                 .waitForPageToLoad()
                 .chooseCourierDeliveryOption()
                 .checkIfCourierDeliveryOptionShowsAddressInput();
@@ -154,7 +152,7 @@ public class OzByTest extends CommonConditions{
     }
 
 
-    @Ignore
+//    @Ignore
     @Test
     public void AddressAdding_ShouldReturnError_WhenAddressIsNonExistent() {
 
@@ -165,7 +163,6 @@ public class OzByTest extends CommonConditions{
                 .openCartPage();
 
         Boolean checkIfAddressHasBeenAdded = new OzByCartPage(driver)
-//                .waitForCartPageToLoad()
                 .waitForPageToLoad()
                 .chooseCourierDeliveryOption()
                 .addDeliveryAddress(TEST_ADDRESS)

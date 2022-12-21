@@ -97,10 +97,12 @@ public class OzByHomePage extends AbstractPage {
 
     public OzByHomePage openCartPage() {
         try {
+            waitForElementLocatedBy(driver, By.xpath("//div[@class='i-popup-login']"));
             waitForElementLocatedBy(driver, By.xpath("//u[text()='Корзина']"));
             linkToCart.click();
         }
         catch(org.openqa.selenium.StaleElementReferenceException ex) {
+            waitForElementLocatedBy(driver, By.xpath("//div[@class='i-popup-login']"));
             waitForElementLocatedBy(driver, By.xpath("//u[text()='Корзина']"));
             linkToCart.click();
         }
