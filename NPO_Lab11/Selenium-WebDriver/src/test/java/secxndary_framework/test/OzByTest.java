@@ -19,7 +19,7 @@ public class OzByTest extends CommonConditions{
     private Comment TEST_COMMENT = CommentCreator.getCommentWithAllData();
 
 
-    @Ignore
+//    @Ignore
     @Test
     public void LeaveComment_ShouldReturnError_WhenTheCommentTextLength_IsMoreThan300Symbols() {
 
@@ -63,7 +63,7 @@ public class OzByTest extends CommonConditions{
     }
 
 
-    @Ignore
+//    @Ignore
     @Test
     public void OrderCall_ShouldReturnError_WhenUserName_IsLongerThan100Symbols() {
 
@@ -79,7 +79,7 @@ public class OzByTest extends CommonConditions{
     }
 
 
-    @Ignore
+//    @Ignore
     @Test
     public void TextFeedbackForm_ShouldReturnError_WhenMessage_IsLongerThan100Symbols() throws InterruptedException {
 
@@ -99,7 +99,7 @@ public class OzByTest extends CommonConditions{
     }
 
 
-    @Ignore
+//    @Ignore
     @Test
     public void SearchPage_ShouldShowSearchResults() {
 
@@ -116,7 +116,7 @@ public class OzByTest extends CommonConditions{
     }
 
 
-    @Ignore
+//    @Ignore
     @Test
     public void SearchFilter_ShouldShowFilterResults() {
 
@@ -133,7 +133,7 @@ public class OzByTest extends CommonConditions{
     }
 
 
-    @Ignore
+//    @Ignore
     @Test
     public void CourierDelivery_ShouldShowAddressInput() {
 
