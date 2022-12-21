@@ -28,14 +28,17 @@ public class OzByFeedbackPage extends AbstractPage {
         // это вынужденная заглушка, т.к. на сайте надо ввести капчу
         Thread.sleep(5000);
         buttonSendFeedback.click();
+        logger.info("sendFeedbackMessage: " + feedbackMessage.getFeedbackText());
         return this;
     }
 
     public Boolean checkIfFeedbackMessageIsSent() {
         try {
             driver.findElement(By.xpath("//h1[text()='Сообщение отправлено. Спасибо!']"));
+            logger.info("checkIfFeedbackMessageIsSent: true");
             return true;
         } catch (NoSuchElementException e) {
+            logger.error("checkIfFeedbackMessageIsSent: NoSuchElementException");
             return false;
         }
     }

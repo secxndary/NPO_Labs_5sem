@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: secxndary_framework.test.OzByTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 30.094 s <<< FAILURE! - in secxndary_framework.test.OzByTest
-secxndary_framework.test.OzByTest.AddressAdding_ShouldReturnError_WhenAddressIsNonExistent  Time elapsed: 25.625 s  <<< FAILURE!
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 17.148 s <<< FAILURE! - in secxndary_framework.test.OzByTest
+secxndary_framework.test.OzByTest.AddressAdding_ShouldReturnError_WhenAddressIsNonExistent  Time elapsed: 7.608 s  <<< FAILURE!
 java.lang.AssertionError: expected [false] but found [true]
 	at org.testng.Assert.fail(Assert.java:96)
 	at org.testng.Assert.failNotEquals(Assert.java:776)

@@ -50,6 +50,7 @@ public class OzByCartPage extends AbstractPage {
     public OzByCartPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
+        logger.info("Opened CartPage");
     }
 
     public OzByCartPage enterNumberOfGoods(Comment numberOfGoods) {
@@ -57,6 +58,7 @@ public class OzByCartPage extends AbstractPage {
         span10NumberOfGoods.click();
         waitForElementLocatedBy(driver, By.xpath("//input[@value='10']"));
         inputEnterNumberOfGoods.sendKeys(String.valueOf(numberOfGoods.getNumberOfGoods()));
+        logger.info("enterNumberOfGoods: " + numberOfGoods.getNumberOfGoods());
         return this;
     }
 
@@ -64,8 +66,10 @@ public class OzByCartPage extends AbstractPage {
         String numberOfGoodsString = String.valueOf(numberOfGoods.getNumberOfGoods());
         try {
             driver.findElement(By.xpath("//input[@value='" + numberOfGoodsString + "']"));
+            logger.info(("checkIfNumberOfGoodsIsSent: true"));
             return true;
         } catch (NoSuchElementException e) {
+            logger.error("checkIfNumberOfGoodsIsSent: NoSuchElementException");
             return false;
         }
     }
@@ -78,14 +82,17 @@ public class OzByCartPage extends AbstractPage {
         optionDeliveryCityMinsk.click();
         waitForElementLocatedBy(driver, By.xpath("//div[contains(text(), 'Курьером')]"));
         optionCourierDeliveryMethod.click();
+        logger.info("chooseCourierDeliveryOption");
         return this;
     }
 
     public Boolean checkIfCourierDeliveryOptionShowsAddressInput() {
         try {
             waitForElementLocatedBy(driver, By.xpath("//*[@class='deal-form-main__input deal-form-main__input_popup i-input i-input_no-border-radius ']"));
+            logger.info("checkIfCourierDeliveryOptionShowsAddressInput: true");
             return true;
         } catch (NoSuchElementException e) {
+            logger.error("checkIfCourierDeliveryOptionShowsAddressInput: NoSuchElementException");
             return false;
         }
     }
@@ -99,14 +106,17 @@ public class OzByCartPage extends AbstractPage {
         inputFormAddressStreet.sendKeys(address.getStreet());
         inputFormAddressHouse.sendKeys(address.getHouse());
         buttonAddAddress.click();
+        logger.info("addDeliveryAddress: street: " + address.getStreet() + ", house: " + address.getHouse());
         return this;
     }
 
     public Boolean checkIfAddressHasBeenAdded() {
         try {
             driver.findElement(By.xpath("//h2[@class='i-context-box-main__title i-h i-h_2']"));
+            logger.info("checkIfAddressHasBeenAdded: true");
             return true;
         } catch (NoSuchElementException e) {
+            logger.error("checkIfAddressHasBeenAdded: NoSuchElementException");
             return false;
         }
     }

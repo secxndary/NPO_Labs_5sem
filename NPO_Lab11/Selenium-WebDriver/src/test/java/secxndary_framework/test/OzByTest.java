@@ -40,7 +40,7 @@ public class OzByTest extends CommonConditions{
     }
 
 
-    @Ignore
+//    @Ignore
     @Test
     public void EnterNumberOfGoods_ShouldReturnError_WhenNumberOfGoods_IsMoreThan99() {
 

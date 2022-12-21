@@ -47,6 +47,7 @@ public class OzByHomePage extends AbstractPage {
     public OzByHomePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
+        logger.info("Opened HomePage");
     }
 
     public OzByHomePage waitForHomePageToLoad() {
@@ -55,10 +56,12 @@ public class OzByHomePage extends AbstractPage {
     }
 
     public OzByHomePage loginIntoAccount(User user) {
+        logger.info("loginIntoAccount: " + user.getUsername() + " / " + user.getPassword());
         buttonOpenLoginForm.click();
         linkLoginUsingEmail.click();
         inputEmail.sendKeys(user.getUsername());
         inputPassword.sendKeys(user.getPassword());
+        waitForElementLocatedBy(driver, By.xpath("//form[@id='loginForm']/button[@value='login']"));
         buttonLoginIntoAccount.click();
         return this;
     }
@@ -68,30 +71,36 @@ public class OzByHomePage extends AbstractPage {
         try {
             linkOrderCall.click();
             waitForElementLocatedBy(driver, By.id("fullname"));
+            logger.info(("clickOrderCallLink"));
         }
         catch(org.openqa.selenium.StaleElementReferenceException ex) {
             linkOrderCall.click();
             waitForElementLocatedBy(driver, By.id("fullname"));
+            logger.info(("clickOrderCallLink"));
         }
         return this;
     }
 
     public OzByHomePage enterOrderCallUserName(User incorrectUserName) {
         inputOrderCallUserName.sendKeys(incorrectUserName.getIncorrectUsername());
+        logger.info("enterOrderCallUserName: " + incorrectUserName.getIncorrectUsername());
         return this;
     }
 
     public Boolean clickOrderCallButton() {
         try {
             driver.findElement(By.xpath("//div[@class='pp-window-user-i nohighlight pp-window-ok']"));
+            logger.info("clickOrderCallButton");
             return true;
         } catch (NoSuchElementException e) {
+            logger.error("clickOrderCallButton: NoSuchElementException");
             return false;
         }
     }
 
     public OzByHomePage enterSearchText(Comment searchText) {
         inputSearch.sendKeys(searchText.getSearchText() + Keys.ENTER);
+        logger.info("enterSearchText: " + searchText.getSearchText());
         return this;
     }
 
@@ -100,11 +109,13 @@ public class OzByHomePage extends AbstractPage {
             waitForElementLocatedBy(driver, By.xpath("//div[@class='i-popup-login']"));
             waitForElementLocatedBy(driver, By.xpath("//u[text()='Корзина']"));
             linkToCart.click();
+            logger.info("openCartPage");
         }
         catch(org.openqa.selenium.StaleElementReferenceException ex) {
             waitForElementLocatedBy(driver, By.xpath("//div[@class='i-popup-login']"));
             waitForElementLocatedBy(driver, By.xpath("//u[text()='Корзина']"));
             linkToCart.click();
+            logger.info("openCartPage");
         }
         return this;
     }
@@ -118,15 +129,18 @@ public class OzByHomePage extends AbstractPage {
     public OzByHomePage openFirstGoodPage() {
         waitForElementLocatedBy(driver, By.xpath("//ul[@id='goods_block_books_1']/li[@class='listatic li_1']"));
         firstGoodOnTheHomePage.click();
+        logger.info("openFirstGoodPage");
         return this;
     }
 
     public OzByHomePage openTextFeedbackPage() {
         try {
             linkOrderTextFeedback.click();
+            logger.info("openTextFeedbackPage");
         }
         catch (org.openqa.selenium.StaleElementReferenceException ex) {
             linkOrderTextFeedback.click();
+            logger.info("openTextFeedbackPage");
         }
         return this;
     }

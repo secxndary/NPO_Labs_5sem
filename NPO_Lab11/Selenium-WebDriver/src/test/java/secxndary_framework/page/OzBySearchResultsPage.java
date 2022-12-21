@@ -18,13 +18,16 @@ public class OzBySearchResultsPage extends AbstractPage {
     public OzBySearchResultsPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
+        logger.info("Opened SearchResultsPage");
     }
 
     public Boolean checkIfSearchPageReturnsSearchResult() {
         try {
             driver.findElement(By.xpath("//p[text()='Токийский Гуль. Книга 1']"));
+            logger.info("checkIfSearchPageReturnsSearchResult: true");
             return true;
         } catch (NoSuchElementException e) {
+            logger.error("checkIfSearchPageReturnsSearchResult: NoSuchElementException");
             return false;
         }
     }
@@ -33,8 +36,10 @@ public class OzBySearchResultsPage extends AbstractPage {
         optionNotForSale.click();
         try {
             waitForElementLocatedBy(driver, By.xpath("//*[text()=' 26 товаров']"));
+            logger.info("checkIfSearchFilterIsCorrect: true");
             return true;
         } catch (NoSuchElementException e) {
+            logger.error("checkIfSearchFilterIsCorrect: NoSuchElementException");
             return false;
         }
     }

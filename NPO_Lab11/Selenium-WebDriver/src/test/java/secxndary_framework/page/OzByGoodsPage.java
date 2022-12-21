@@ -33,6 +33,7 @@ public class OzByGoodsPage extends AbstractPage {
     public OzByGoodsPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
+        logger.info("Opened GoodsPage");
     }
 
     public OzByGoodsPage clickOnLeaveCommentButton () {
@@ -41,11 +42,13 @@ public class OzByGoodsPage extends AbstractPage {
     }
 
     public OzByGoodsPage enterComment (Comment commentText) {
+        logger.info("enterComment");
         textAreaCommentMessage.sendKeys(commentText.getCommentText());
         return this;
     }
 
     public OzByGoodsPage sendComment() {
+        logger.info("sendComment");
         buttonLeaveComment.click();
         return this;
     }
@@ -54,8 +57,10 @@ public class OzByGoodsPage extends AbstractPage {
         try {
             waitForElementLocatedBy(driver, By.xpath("//p[text()='" + commentText.getCommentText() + "']"));
             driver.findElement(By.xpath("//p[text()='" + commentText.getCommentText() + "']"));
+            logger.info("checkIfCommentIsSent: true");
             return true;
         } catch (NoSuchElementException e) {
+            logger.error("checkIfCommentIsSent: NoSuchElementException");
             return false;
         }
     }
@@ -65,9 +70,11 @@ public class OzByGoodsPage extends AbstractPage {
             driver.findElement(By.xpath("//button[@class='b-product-control__button i-button i-button_large i-button_orange addtocart-btn first-button']"));
             buttonAddToCart.click();
             linkToTheCart.click();
+            logger.info("openCartPage: the product is not in the cart yet.");
         } catch (NoSuchElementException e) {
             waitForElementLocatedBy(driver, By.xpath("//a[@class='b-product-control__button i-button i-button_info second-button']"));
             linkToTheCart.click();
+            logger.info("openCartPage: the product is in the cart already.");
         }
         return this;
     }
