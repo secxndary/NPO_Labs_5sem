@@ -1,6 +1,6 @@
 package secxndary_framework.model;
-
 import java.util.Objects;
+
 
 public class Comment {
 
@@ -8,7 +8,6 @@ public class Comment {
     private String searchText;
     private String commentText;
     private int numberOfGoods;
-
 
     public Comment() { }
 

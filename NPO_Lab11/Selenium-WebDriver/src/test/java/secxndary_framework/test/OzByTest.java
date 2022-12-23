@@ -4,8 +4,10 @@ import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import secxndary_framework.creator.AddressCreator;
 import secxndary_framework.creator.CommentCreator;
+import secxndary_framework.creator.GiftCardCreator;
 import secxndary_framework.model.Address;
 import secxndary_framework.model.Comment;
+import secxndary_framework.model.GiftCard;
 import secxndary_framework.model.User;
 import secxndary_framework.page.*;
 import secxndary_framework.creator.UserCreator;
@@ -17,9 +19,9 @@ public class OzByTest extends CommonConditions{
     private User TEST_INCORRECT_USER = UserCreator.withIncorrectUsername();
     private Address TEST_ADDRESS = AddressCreator.withStreetAndHouse();
     private Comment TEST_COMMENT = CommentCreator.getCommentWithAllData();
+    private GiftCard TEST_GIFT_CARD = GiftCardCreator.getGiftCardWithAllData();
 
-
-//    @Ignore
+    @Ignore
     @Test
     public void LeaveComment_ShouldReturnError_WhenTheCommentTextLength_IsMoreThan300Symbols() {
 
@@ -40,7 +42,7 @@ public class OzByTest extends CommonConditions{
     }
 
 
-//    @Ignore
+    @Ignore
     @Test
     public void EnterNumberOfGoods_ShouldReturnError_WhenNumberOfGoods_IsMoreThan99() {
 
@@ -63,7 +65,7 @@ public class OzByTest extends CommonConditions{
     }
 
 
-//    @Ignore
+    @Ignore
     @Test
     public void OrderCall_ShouldReturnError_WhenUserName_IsLongerThan100Symbols() {
 
@@ -79,7 +81,7 @@ public class OzByTest extends CommonConditions{
     }
 
 
-//    @Ignore
+    @Ignore
     @Test
     public void TextFeedbackForm_ShouldReturnError_WhenMessage_IsLongerThan100Symbols() throws InterruptedException {
 
@@ -99,7 +101,7 @@ public class OzByTest extends CommonConditions{
     }
 
 
-//    @Ignore
+    @Ignore
     @Test
     public void SearchPage_ShouldShowSearchResults() {
 
@@ -116,7 +118,7 @@ public class OzByTest extends CommonConditions{
     }
 
 
-//    @Ignore
+    @Ignore
     @Test
     public void SearchFilter_ShouldShowFilterResults() {
 
@@ -133,7 +135,7 @@ public class OzByTest extends CommonConditions{
     }
 
 
-//    @Ignore
+    @Ignore
     @Test
     public void CourierDelivery_ShouldShowAddressInput() {
 
@@ -152,7 +154,7 @@ public class OzByTest extends CommonConditions{
     }
 
 
-//    @Ignore
+    @Ignore
     @Test
     public void AddressAdding_ShouldReturnError_WhenAddressIsNonExistent() {
 
@@ -169,5 +171,29 @@ public class OzByTest extends CommonConditions{
                 .checkIfAddressHasBeenAdded();
 
         Assert.assertFalse(checkIfAddressHasBeenAdded);
+    }
+
+
+//    @Ignore
+    @Test
+    public void GiftCardTest() {
+
+        new OzByHomePage(driver)
+                .waitForHomePageToLoad()
+                .openPage()
+                .loginIntoAccount(TEST_USER)
+                .openGiftCardPage();
+
+        int actualNumberOfGiftCards = new OzByGiftCardPage(driver)
+                .waitForPageToLoad()
+                .selectGiftCard()
+                .waitForGiftCardPageToLoad()
+                .placeAnOrder()
+                .selectNumberOfGiftCards()
+                .enterNumberOfGiftCards(TEST_GIFT_CARD)
+                .getActualNumberOfGiftCards();
+
+        int expectedMaxAmountOfGiftCards = TEST_GIFT_CARD.getMaxAmountOfGiftCards();
+        Assert.assertEquals(actualNumberOfGiftCards, expectedMaxAmountOfGiftCards);
     }
 }

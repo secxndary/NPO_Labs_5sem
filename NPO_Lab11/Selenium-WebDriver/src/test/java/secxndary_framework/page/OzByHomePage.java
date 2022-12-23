@@ -43,6 +43,9 @@ public class OzByHomePage extends AbstractPage {
     @FindBy(xpath = "//u[text() = 'Корзина']")
     WebElement linkToCart;
 
+    @FindBy(xpath = "//li[@class='top-panel__hnav__li']//a[text()='Электронные подарочные сертификаты']")
+    WebElement linkToGiftCard;
+
 
     public OzByHomePage(WebDriver driver) {
         this.driver = driver;
@@ -141,6 +144,18 @@ public class OzByHomePage extends AbstractPage {
         catch (org.openqa.selenium.StaleElementReferenceException ex) {
             linkOrderTextFeedback.click();
             logger.info("openTextFeedbackPage");
+        }
+        return this;
+    }
+
+    public OzByHomePage openGiftCardPage() {
+        try {
+            linkToGiftCard.click();
+            logger.info("openGiftCardPage");
+        }
+        catch (org.openqa.selenium.StaleElementReferenceException ex) {
+            linkToGiftCard.click();
+            logger.info("openGiftCardPage");
         }
         return this;
     }
