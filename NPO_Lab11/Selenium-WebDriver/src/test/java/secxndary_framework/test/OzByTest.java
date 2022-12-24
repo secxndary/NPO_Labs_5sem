@@ -21,7 +21,8 @@ public class OzByTest extends CommonConditions{
     private Comment TEST_COMMENT = CommentCreator.getCommentWithAllData();
     private GiftCard TEST_GIFT_CARD = GiftCardCreator.getGiftCardWithAllData();
 
-    @Ignore
+    
+//    @Ignore
     @Test
     public void LeaveComment_ShouldReturnError_WhenTheCommentTextLength_IsMoreThan300Symbols() {
 
@@ -42,7 +43,7 @@ public class OzByTest extends CommonConditions{
     }
 
 
-    @Ignore
+//    @Ignore
     @Test
     public void EnterNumberOfGoods_ShouldReturnError_WhenNumberOfGoods_IsMoreThan99() {
 
@@ -65,7 +66,7 @@ public class OzByTest extends CommonConditions{
     }
 
 
-    @Ignore
+//    @Ignore
     @Test
     public void OrderCall_ShouldReturnError_WhenUserName_IsLongerThan100Symbols() {
 
@@ -81,7 +82,7 @@ public class OzByTest extends CommonConditions{
     }
 
 
-    @Ignore
+//    @Ignore
     @Test
     public void TextFeedbackForm_ShouldReturnError_WhenMessage_IsLongerThan100Symbols() throws InterruptedException {
 
@@ -101,7 +102,7 @@ public class OzByTest extends CommonConditions{
     }
 
 
-    @Ignore
+//    @Ignore
     @Test
     public void SearchPage_ShouldShowSearchResults() {
 
@@ -118,7 +119,7 @@ public class OzByTest extends CommonConditions{
     }
 
 
-    @Ignore
+//    @Ignore
     @Test
     public void SearchFilter_ShouldShowFilterResults() {
 
@@ -135,7 +136,7 @@ public class OzByTest extends CommonConditions{
     }
 
 
-    @Ignore
+//    @Ignore
     @Test
     public void CourierDelivery_ShouldShowAddressInput() {
 
@@ -154,7 +155,7 @@ public class OzByTest extends CommonConditions{
     }
 
 
-    @Ignore
+//    @Ignore
     @Test
     public void AddressAdding_ShouldReturnError_WhenAddressIsNonExistent() {
 
@@ -176,7 +177,7 @@ public class OzByTest extends CommonConditions{
 
 //    @Ignore
     @Test
-    public void GiftCardTest() {
+    public void OrderGiftCards_TotalPrice_ShouldBeLess_Then1000BYN_WIthAllTypesOfGiftCards() {
 
         new OzByHomePage(driver)
                 .waitForHomePageToLoad()
@@ -195,5 +196,27 @@ public class OzByTest extends CommonConditions{
 
         int expectedMaxAmountOfGiftCards = TEST_GIFT_CARD.getMaxAmountOfGiftCards();
         Assert.assertEquals(actualNumberOfGiftCards, expectedMaxAmountOfGiftCards);
+    }
+
+
+//    @Ignore
+    @Test
+    public void LogoutButton_ShouldLogOutFromAccount_WhenClicked() {
+
+        new OzByHomePage(driver)
+                .waitForHomePageToLoad()
+                .openPage()
+                .loginIntoAccount(TEST_USER)
+                .openAccountPage();
+
+        new OzByAccountPage(driver)
+                .waitForPageToLoad()
+                .clickLogOutButton();
+
+        Boolean checkIfAccountIsLoggedOut = new OzByHomePage(driver)
+                .waitForHomePageToLoad()
+                .checkIfAccountIsLoggedOut();
+
+        Assert.assertTrue(checkIfAccountIsLoggedOut);
     }
 }

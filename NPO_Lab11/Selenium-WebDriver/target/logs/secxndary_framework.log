@@ -1,11 +1,7 @@
-2023-01-07 20:35:02,831 WARN  [main] Expected number of gift cards: 1000 / 30 = 33
-2023-01-07 20:35:04,395 INFO  [main] Opened HomePage
-2023-01-07 20:35:06,346 INFO  [main] loginIntoAccount: valdaitsevv@mail.ru / 4cLMSR
-2023-01-07 20:35:08,987 INFO  [main] openGiftCardPage
-2023-01-07 20:35:08,989 WARN  [main] Expected number of gift cards: 1000 / 30 = 33
-2023-01-07 20:35:08,991 INFO  [main] Opened GiftCardPage
-2023-01-07 20:35:10,491 INFO  [main] linkGiftCardVariablePrice
-2023-01-07 20:35:10,602 INFO  [main] placeAnOrder
-2023-01-07 20:35:10,672 INFO  [main] selectNumberOfGiftCards
-2023-01-07 20:35:10,925 INFO  [main] enterNumberOfGiftCards 
-2023-01-07 20:35:10,941 WARN  [main] Actual number of gift cards: 33
+2023-01-07 21:09:47,465 INFO  [main] Opened HomePage
+2023-01-07 21:09:48,262 INFO  [main] loginIntoAccount: valdaitsevv@mail.ru / 4cLMSR
+2023-01-07 21:09:51,209 INFO  [main] openAccountPage
+2023-01-07 21:09:51,210 INFO  [main] Opened AccountPage
+2023-01-07 21:09:51,940 INFO  [main] clickLogOutButton
+2023-01-07 21:09:51,942 INFO  [main] Opened HomePage
+2023-01-07 21:09:51,967 INFO  [main] checkIfAccountIsLoggedOut: true

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="secxndary_framework.test.OzByTest" time="9.013" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="secxndary_framework.test.OzByTest" time="6.916" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="webdriver.chrome.driver" value="C:\Users\valda\.m2\repository\webdriver\chromedriver\win32\107.0.5304.62\chromedriver.exe"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="RU"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-17.0.2\bin"/>
-    <property name="sun.java.command" value="C:\Users\valda\AppData\Local\Temp\surefire11281079817580618985\surefirebooter-20230107203501869_3.jar C:\Users\valda\AppData\Local\Temp\surefire11281079817580618985 2023-01-07T20-35-01_421-jvmRun1 surefire-20230107203501869_1tmp surefire_0-20230107203501869_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\valda\AppData\Local\Temp\surefire8677369869254845268\surefirebooter-20230107210945002_3.jar C:\Users\valda\AppData\Local\Temp\surefire8677369869254845268 2023-01-07T21-09-44_582-jvmRun1 surefire-20230107210945002_1tmp surefire_0-20230107210945002_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\valda\source\repos\semester#5\НПО\NPO_Lab11\Selenium-WebDriver\target\test-classes;C:\Users\valda\source\repos\semester#5\НПО\NPO_Lab11\Selenium-WebDriver\target\classes;C:\Users\valda\.m2\repository\org\seleniumhq\selenium\selenium-java\3.13.0\selenium-java-3.13.0.jar;C:\Users\valda\.m2\repository\org\seleniumhq\selenium\selenium-api\3.13.0\selenium-api-3.13.0.jar;C:\Users\valda\.m2\repository\org\seleniumhq\selenium\selenium-chrome-driver\3.13.0\selenium-chrome-driver-3.13.0.jar;C:\Users\valda\.m2\repository\org\seleniumhq\selenium\selenium-edge-driver\3.13.0\selenium-edge-driver-3.13.0.jar;C:\Users\valda\.m2\repository\org\seleniumhq\selenium\selenium-firefox-driver\3.13.0\selenium-firefox-driver-3.13.0.jar;C:\Users\valda\.m2\repository\org\seleniumhq\selenium\selenium-ie-driver\3.13.0\selenium-ie-driver-3.13.0.jar;C:\Users\valda\.m2\repository\org\seleniumhq\selenium\selenium-opera-driver\3.13.0\selenium-opera-driver-3.13.0.jar;C:\Users\valda\.m2\repository\org\seleniumhq\selenium\selenium-remote-driver\3.13.0\selenium-remote-driver-3.13.0.jar;C:\Users\valda\.m2\repository\org\seleniumhq\selenium\selenium-safari-driver\3.13.0\selenium-safari-driver-3.13.0.jar;C:\Users\valda\.m2\repository\org\seleniumhq\selenium\selenium-support\3.13.0\selenium-support-3.13.0.jar;C:\Users\valda\.m2\repository\net\bytebuddy\byte-buddy\1.8.3\byte-buddy-1.8.3.jar;C:\Users\valda\.m2\repository\org\apache\commons\commons-exec\1.3\commons-exec-1.3.jar;C:\Users\valda\.m2\repository\commons-codec\commons-codec\1.10\commons-codec-1.10.jar;C:\Users\valda\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\valda\.m2\repository\com\google\code\gson\gson\2.8.4\gson-2.8.4.jar;C:\Users\valda\.m2\repository\com\google\guava\guava\25.0-jre\guava-25.0-jre.jar;C:\Users\valda\.m2\repository\com\google\code\findbugs\jsr305\1.3.9\jsr305-1.3.9.jar;C:\Users\valda\.m2\repository\org\checkerframework\checker-compat-qual\2.0.0\checker-compat-qual-2.0.0.jar;C:\Users\valda\.m2\repository\com\google\errorprone\error_prone_annotations\2.1.3\error_prone_annotations-2.1.3.jar;C:\Users\valda\.m2\repository\com\google\j2objc\j2objc-annotations\1.1\j2objc-annotations-1.1.jar;C:\Users\valda\.m2\repository\org\codehaus\mojo\animal-sniffer-annotations\1.14\animal-sniffer-annotations-1.14.jar;C:\Users\valda\.m2\repository\org\apache\httpcomponents\httpclient\4.5.5\httpclient-4.5.5.jar;C:\Users\valda\.m2\repository\org\apache\httpcomponents\httpcore\4.4.9\httpcore-4.4.9.jar;C:\Users\valda\.m2\repository\com\squareup\okhttp3\okhttp\3.10.0\okhttp-3.10.0.jar;C:\Users\valda\.m2\repository\com\squareup\okio\okio\1.14.1\okio-1.14.1.jar;C:\Users\valda\.m2\repository\org\testng\testng\6.14.3\testng-6.14.3.jar;C:\Users\valda\.m2\repository\com\beust\jcommander\1.72\jcommander-1.72.jar;C:\Users\valda\.m2\repository\org\apache-extras\beanshell\bsh\2.0b6\bsh-2.0b6.jar;C:\Users\valda\.m2\repository\io\github\bonigarcia\webdrivermanager\3.3.0\webdrivermanager-3.3.0.jar;C:\Users\valda\.m2\repository\org\slf4j\slf4j-api\1.7.25\slf4j-api-1.7.25.jar;C:\Users\valda\.m2\repository\org\apache\commons\commons-lang3\3.8.1\commons-lang3-3.8.1.jar;C:\Users\valda\.m2\repository\org\rauschig\jarchivelib\1.0.0\jarchivelib-1.0.0.jar;C:\Users\valda\.m2\repository\org\apache\commons\commons-compress\1.18\commons-compress-1.18.jar;C:\Users\valda\.m2\repository\org\jsoup\jsoup\1.11.3\jsoup-1.11.3.jar;C:\Users\valda\.m2\repository\org\hamcrest\hamcrest\2.1\hamcrest-2.1.jar;C:\Users\valda\.m2\repository\commons-io\commons-io\2.6\commons-io-2.6.jar;C:\Users\valda\.m2\repository\org\apache\logging\log4j\log4j-api\2.11.1\log4j-api-2.11.1.jar;C:\Users\valda\.m2\repository\org\apache\logging\log4j\log4j-core\2.11.1\log4j-core-2.11.1.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\valda\AppData\Local\Temp\surefire11281079817580618985\surefirebooter-20230107203501869_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\valda\AppData\Local\Temp\surefire8677369869254845268\surefirebooter-20230107210945002_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.2+8-LTS-86"/>
@@ -59,27 +59,23 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="GiftCardTest" classname="secxndary_framework.test.OzByTest" time="6.587">
-    <system-out><![CDATA[2023-01-07 20:35:02,831 WARN  [main] secxndary_framework.model.GiftCard.<init>(GiftCard.java:23) Expected number of gift cards: 1000 / 30 = 33
-2023-01-07 20:35:04,395 INFO  [main] secxndary_framework.page.OzByHomePage.<init>(OzByHomePage.java:53) Opened HomePage
-2023-01-07 20:35:06,346 INFO  [main] secxndary_framework.page.OzByHomePage.loginIntoAccount(OzByHomePage.java:62) loginIntoAccount: valdaitsevv@mail.ru / 4cLMSR
-2023-01-07 20:35:08,987 INFO  [main] secxndary_framework.page.OzByHomePage.openGiftCardPage(OzByHomePage.java:158) openGiftCardPage
-2023-01-07 20:35:08,989 WARN  [main] secxndary_framework.model.GiftCard.<init>(GiftCard.java:23) Expected number of gift cards: 1000 / 30 = 33
-2023-01-07 20:35:08,991 INFO  [main] secxndary_framework.page.OzByGiftCardPage.<init>(OzByGiftCardPage.java:44) Opened GiftCardPage
-2023-01-07 20:35:10,491 INFO  [main] secxndary_framework.page.OzByGiftCardPage.selectGiftCard(OzByGiftCardPage.java:52) linkGiftCardVariablePrice
-2023-01-07 20:35:10,602 INFO  [main] secxndary_framework.page.OzByGiftCardPage.placeAnOrder(OzByGiftCardPage.java:58) placeAnOrder
-2023-01-07 20:35:10,672 INFO  [main] secxndary_framework.page.OzByGiftCardPage.selectNumberOfGiftCards(OzByGiftCardPage.java:64) selectNumberOfGiftCards
-2023-01-07 20:35:10,925 INFO  [main] secxndary_framework.page.OzByGiftCardPage.enterNumberOfGiftCards(OzByGiftCardPage.java:73) enterNumberOfGiftCards 
-2023-01-07 20:35:10,941 WARN  [main] secxndary_framework.page.OzByGiftCardPage.getActualNumberOfGiftCards(OzByGiftCardPage.java:85) Actual number of gift cards: 33
+  <testcase name="LogoutButton_ShouldLogOutFromAccount_WhenClicked" classname="secxndary_framework.test.OzByTest" time="4.528">
+    <system-out><![CDATA[2023-01-07 21:09:47,465 INFO  [main] secxndary_framework.page.OzByHomePage.<init>(OzByHomePage.java:58) Opened HomePage
+2023-01-07 21:09:48,262 INFO  [main] secxndary_framework.page.OzByHomePage.loginIntoAccount(OzByHomePage.java:63) loginIntoAccount: valdaitsevv@mail.ru / 4cLMSR
+2023-01-07 21:09:51,209 INFO  [main] secxndary_framework.page.OzByHomePage.openAccountPage(OzByHomePage.java:179) openAccountPage
+2023-01-07 21:09:51,210 INFO  [main] secxndary_framework.page.OzByAccountPage.<init>(OzByAccountPage.java:20) Opened AccountPage
+2023-01-07 21:09:51,940 INFO  [main] secxndary_framework.page.OzByAccountPage.clickLogOutButton(OzByAccountPage.java:26) clickLogOutButton
+2023-01-07 21:09:51,942 INFO  [main] secxndary_framework.page.OzByHomePage.<init>(OzByHomePage.java:58) Opened HomePage
+2023-01-07 21:09:51,967 INFO  [main] secxndary_framework.page.OzByHomePage.checkIfAccountIsLoggedOut(OzByHomePage.java:113) checkIfAccountIsLoggedOut: true
 ]]></system-out>
     <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
-Starting ChromeDriver 107.0.5304.62 (1eec40d3a5764881c92085aaee66d25075c159aa-refs/branch-heads/5304@{#942}) on port 19698
+Starting ChromeDriver 107.0.5304.62 (1eec40d3a5764881c92085aaee66d25075c159aa-refs/branch-heads/5304@{#942}) on port 30744
 Only local connections are allowed.
 Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
 ChromeDriver was started successfully.
-янв. 07, 2023 8:35:04 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+янв. 07, 2023 9:09:47 PM org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected dialect: W3C
 ]]></system-err>
   </testcase>

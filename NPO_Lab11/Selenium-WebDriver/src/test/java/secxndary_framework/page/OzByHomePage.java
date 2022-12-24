@@ -1,5 +1,6 @@
 package secxndary_framework.page;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -46,6 +47,10 @@ public class OzByHomePage extends AbstractPage {
     @FindBy(xpath = "//li[@class='top-panel__hnav__li']//a[text()='Электронные подарочные сертификаты']")
     WebElement linkToGiftCard;
 
+    @FindBy(xpath = "//*[@data-aimnav-id='#mobile-userbar']")
+    WebElement linkToAccountPage;
+
+
 
     public OzByHomePage(WebDriver driver) {
         this.driver = driver;
@@ -53,10 +58,6 @@ public class OzByHomePage extends AbstractPage {
         logger.info("Opened HomePage");
     }
 
-    public OzByHomePage waitForHomePageToLoad() {
-        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS);
-        return this;
-    }
 
     public OzByHomePage loginIntoAccount(User user) {
         logger.info("loginIntoAccount: " + user.getUsername() + " / " + user.getPassword());
@@ -68,7 +69,6 @@ public class OzByHomePage extends AbstractPage {
         buttonLoginIntoAccount.click();
         return this;
     }
-
 
     public OzByHomePage clickOrderCallLink() {
         try {
@@ -107,6 +107,25 @@ public class OzByHomePage extends AbstractPage {
         return this;
     }
 
+    public Boolean checkIfAccountIsLoggedOut() {
+        try {
+            driver.findElement(By.xpath("//li[@class='top-panel__userbar__li ']/a[@class='top-panel__userbar__auth']"));
+            logger.info("checkIfAccountIsLoggedOut: true");
+            return true;
+        } catch (NoSuchElementException e) {
+            logger.error("checkIfAccountIsLoggedOut: NoSuchElementException");
+            return false;
+        }
+    }
+
+
+
+    public OzByHomePage openPage() {
+        driver.get(HOMEPAGE_URL);
+        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS);
+        return this;
+    }
+
     public OzByHomePage openCartPage() {
         try {
             waitForElementLocatedBy(driver, By.xpath("//div[@class='i-popup-login']"));
@@ -120,12 +139,6 @@ public class OzByHomePage extends AbstractPage {
             linkToCart.click();
             logger.info("openCartPage");
         }
-        return this;
-    }
-
-    public OzByHomePage openPage() {
-        driver.get(HOMEPAGE_URL);
-        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS);
         return this;
     }
 
@@ -157,6 +170,19 @@ public class OzByHomePage extends AbstractPage {
             linkToGiftCard.click();
             logger.info("openGiftCardPage");
         }
+        return this;
+    }
+
+    public OzByHomePage openAccountPage() {
+        waitForElementLocatedBy(driver, By.xpath("//*[@data-aimnav-id='#mobile-userbar']"));
+        linkToAccountPage.click();
+        logger.info("openAccountPage");
+        return this;
+    }
+
+
+    public OzByHomePage waitForHomePageToLoad() {
+        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS);
         return this;
     }
 }

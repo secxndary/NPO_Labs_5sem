@@ -20,8 +20,6 @@ public class GiftCard {
         this.singleGiftCardPrice = singleGiftCardPrice;
         this.numberOfGiftCards = numberOfGiftCards;
         this.maxAmountOfGiftCards = maxTotalCostForGiftCards / singleGiftCardPrice;
-        LogManager.getRootLogger().warn("Expected number of gift cards: " + this.maxTotalCostForGiftCards +
-                " / " + this.singleGiftCardPrice + " = " + this.maxAmountOfGiftCards);
     }
 
 

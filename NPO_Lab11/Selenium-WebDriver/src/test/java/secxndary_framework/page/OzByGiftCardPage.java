@@ -71,6 +71,8 @@ public class OzByGiftCardPage extends AbstractPage {
         inputNumberOfGiftCards.sendKeys(String.valueOf(giftCard.getNumberOfGiftCards()));
         pToClickAndCheckNumberOfGiftCards.click();
         logger.info("enterNumberOfGiftCards ", String.valueOf(giftCard.getNumberOfGiftCards()));
+        logger.warn("Expected number of gift cards:  " + giftCard.getMaxTotalCostForGiftCards() +
+                " / " + giftCard.getSingleGiftCardPrice() + " = " + giftCard.getMaxAmountOfGiftCards());
         return this;
     }
 
@@ -82,7 +84,7 @@ public class OzByGiftCardPage extends AbstractPage {
 
     public int getActualNumberOfGiftCards() {
         int actualNumberOfGiftCards = Integer.parseInt(inputNumberOfGiftCards.getAttribute("value"));
-        logger.warn("Actual number of gift cards: " + actualNumberOfGiftCards);
+        logger.warn("Actual number of gift cards:    " + actualNumberOfGiftCards);
         return actualNumberOfGiftCards;
     }
 
