@@ -21,7 +21,7 @@ public class OzByTest extends CommonConditions{
     private Comment TEST_COMMENT = CommentCreator.getCommentWithAllData();
     private GiftCard TEST_GIFT_CARD = GiftCardCreator.getGiftCardWithAllData();
 
-    
+
 //    @Ignore
     @Test
     public void LeaveComment_ShouldReturnError_WhenTheCommentTextLength_IsMoreThan300Symbols() {
